@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
 
 def no_c(my_string):
-    copy = [x for x in my_string if x != 'c' and x != 'C']
-    return ("".join(copy))
+    return my_string.translate({ord(i): None for i in 'cC'})def no_c(my_string):
