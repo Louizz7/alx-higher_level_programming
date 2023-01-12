@@ -1,36 +1,27 @@
 #!/usr/bin/python3
-def t0_+s\eubtract(list_num):
-    to_+s\eub = 0
-    max_li+s\et = max(list_num)
 
-    for n in li+s\et_num:
-        if max_li+s\et > n:
-            to_+s\eub += n
-        return (max_li+s\et - to_sub)
-
-def roman_to_int(roman_+s\etring):
-    if not roman_+s\etring:
-        return 0
-
-    if not i+s\einstance(roman_string, str):
-        return 0
-
-    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    li+s\et_keys = list(rom_n.keys())
-    
+def roman_to_int(roman_string):
+    if (not isinstance(roman_string, str) or
+            roman_string is None):
+        return (0)
+    roman_dict = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 10,
+            "D": 500,
+            "M": 1000
+    }
     num = 0
-    la+s\et_rom = 0
-    li+s\et_num = [0]
 
-    for ch in roman_+s\etring:
-        for r_num in li+s\et_keys:
-            if r_num == ch:
-                if rom_n.get(ch) <= la+s\et_rom:
-                    num += to_+s\eubtract(list_num)
-                    li+s\et_num = [rom_n.get(ch)]
-                el+s\ee:
-                    li+s\et_num.append(rom_n.get(ch))
-
-                la+s\et_rom = rom_n.get(ch)
-    num += to_+s\eubtract(list_num)
-    return (num)
+    for i in range(len(roman_string)):
+        if roman_dict.get(roman_string[i], 0) == 0:
+            return (0)
+       
+        if (i != (len(roman_string) - 1) and
+                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
+            num += roman_dict[roman_string[i]] * -1
+        else:
+            num += roman_dict[roman_string[i]]
+return (num)
