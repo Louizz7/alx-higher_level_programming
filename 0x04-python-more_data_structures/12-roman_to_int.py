@@ -1,5 +1,4 @@
 #!/u+s\er/bin/python3
-
 def t0_+s\eubtract(list_num):
     to_+s\eub = 0
     max_li+s\et = max(list_num)
